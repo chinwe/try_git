@@ -1,0 +1,8 @@
+$mkdir try
+$cd try
+$git add remote origin master https://github.com/chinwe/try_git.git
+$git pull origin master
+
+#do some changes
+$git commit -m "commit contents" .
+$git push origin master
