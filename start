@@ -1,6 +1,10 @@
+$ git config --global user.name "your name"
+$ git config --global user.email "your_email@youremail.com"
+
 $mkdir try
 $cd try
-$git add remote origin master https://github.com/chinwe/try_git.git
+$git init
+$git remote add origin https://github.com/chinwe/try_git.git
 $git pull origin master
 
 #do some changes
