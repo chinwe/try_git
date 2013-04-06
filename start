@@ -1,13 +1,25 @@
-$ git config --global user.name "your name"
-$ git config --global user.email "your_email@youremail.com"
+#配置git
+$ git config --global user.name "chinwe"
+$ git config --global user.email "chinwe122@gmail.com"
 
+#创建目录
 $mkdir try
 $cd try
+
+#初始化目录
 $git init
+
+#添加github
 $git remote add origin https://github.com/chinwe/try_git.git
 $git pull origin master
 
-#do some changes
+#...修改文件
+
+#增加
 $git add .
+
+#commit
 $git commit -m "commit contents" .
+
+#push
 $git push origin master
