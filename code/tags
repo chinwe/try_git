@@ -806,6 +806,8 @@ CanConvert	cc/CMarkup/Markup/Test/Markup.cpp	/^	static bool CanConvert( MCD_CSTR
 CanConvert	cc/CMarkup/Markup/Test/Markup.cpp	/^bool TextEncoding::CanConvert( MCD_CSTR pszToEncoding, MCD_CSTR pszFromEncoding )$/;"	f	class:TextEncoding	signature:( MCD_CSTR pszToEncoding, MCD_CSTR pszFromEncoding )
 Check	cc/CMarkup/Markup/Test/MarkupTest.cpp	/^int CMarkupTest::Check( int bCorrect, MCD_PCSZ pszProblem\/*=NULL*\/ )$/;"	f	class:CMarkupTest	signature:( int bCorrect, MCD_PCSZ pszProblem )
 Check	cc/CMarkup/Markup/Test/MarkupTest.h	/^	int Check( int bCorrect, MCD_PCSZ pszProblem = NULL );$/;"	p	struct:CMarkupTest	access:protected	signature:( int bCorrect, MCD_PCSZ pszProblem = NULL )
+Clean	cc/CMarkup/main.cpp	/^void Clean(Tree& tree)$/;"	f	signature:(Tree& tree)
+Clean	cc/CMarkup/main.cpp	/^void Clean(Tree& tree);$/;"	p	file:	signature:(Tree& tree)
 Clear	cc/CMarkup/Markup/Markup.cpp	/^	void Clear() { m_nL=0; m_nR=-1; m_nNext=0; };$/;"	f	struct:TokenPos	access:public	signature:()
 Clear	cc/CMarkup/Markup/Markup.cpp	/^	void Clear() { m_nSegs=0; m_nSize=0; m_pSegs=NULL; };$/;"	f	struct:ElemPosTree	access:public	signature:()
 Clear	cc/CMarkup/Markup/Test/Markup.cpp	/^	void Clear() { m_nL=0; m_nR=-1; m_nNext=0; };$/;"	f	struct:TokenPos	access:public	signature:()
@@ -1788,6 +1790,7 @@ MSXMLDOCPTR	cc/CMarkup/Markup/Test/MarkupMSXML.h	25;"	d
 MSXMLDOCPTR	cc/CMarkup/Markup/Test/MarkupMSXML.h	35;"	d
 MSXMLNS	cc/CMarkup/Markup/Test/MarkupMSXML.h	26;"	d
 MSXMLNS	cc/CMarkup/Markup/Test/MarkupMSXML.h	36;"	d
+MapIt	cc/CMarkup/main.cpp	/^typedef map<int, vector<Node*> >::iterator MapIt;$/;"	t	file:
 MarkupDocFlags	cc/CMarkup/Markup/Markup.h	/^	enum MarkupDocFlags$/;"	g	class:CMarkup	access:public
 MarkupDocFlags	cc/CMarkup/Markup/Test/Markup.h	/^	enum MarkupDocFlags$/;"	g	class:CMarkup	access:public
 MarkupNodeFlags	cc/CMarkup/Markup/Markup.h	/^	enum MarkupNodeFlags$/;"	g	class:CMarkup	access:public
@@ -1803,10 +1806,14 @@ MarkupResultCode	cc/CMarkup/Markup/Markup.cpp	/^enum MarkupResultCode$/;"	g	file
 MarkupResultCode	cc/CMarkup/Markup/Test/Markup.cpp	/^enum MarkupResultCode$/;"	g	file:
 Match	cc/CMarkup/Markup/Markup.cpp	/^	bool Match( MCD_CSTR szName )$/;"	f	struct:TokenPos	access:public	signature:( MCD_CSTR szName )
 Match	cc/CMarkup/Markup/Test/Markup.cpp	/^	bool Match( MCD_CSTR szName )$/;"	f	struct:TokenPos	access:public	signature:( MCD_CSTR szName )
+NewNode	cc/CMarkup/main.cpp	/^void NewNode(string& strNode, int iDeep)$/;"	f	signature:(string& strNode, int iDeep)
+NewNode	cc/CMarkup/main.cpp	/^void NewNode(string& strNode, int iDeep);$/;"	p	file:	signature:(string& strNode, int iDeep)
 NextChar	cc/CMarkup/Markup/Markup.cpp	/^	MCD_CHAR NextChar() { m_nNext += MCD_CLEN(&m_pDocText[m_nNext]); return m_pDocText[m_nNext]; };$/;"	f	struct:TokenPos	access:public	signature:()
 NextChar	cc/CMarkup/Markup/Test/Markup.cpp	/^	MCD_CHAR NextChar() { m_nNext += MCD_CLEN(&m_pDocText[m_nNext]); return m_pDocText[m_nNext]; };$/;"	f	struct:TokenPos	access:public	signature:()
 NextParent	cc/CMarkup/Markup/Markup.cpp	/^	TagPos& NextParent( int& i ) { int iCur=i; i=pL[i].iParent; return pL[iCur]; };$/;"	f	struct:ElemStack	access:public	signature:( int& i )
 NextParent	cc/CMarkup/Markup/Test/Markup.cpp	/^	TagPos& NextParent( int& i ) { int iCur=i; i=pL[i].iParent; return pL[iCur]; };$/;"	f	struct:ElemStack	access:public	signature:( int& i )
+Node	cc/CMarkup/main.cpp	/^typedef tagNode<string> Node;$/;"	t	file:
+NodeIt	cc/CMarkup/main.cpp	/^typedef vector<Node*>::iterator NodeIt;$/;"	t	file:
 NodePos	cc/CMarkup/Markup/Markup.cpp	/^	NodePos( int n ) { nNodeFlags=n; nNodeType=0; nStart=0; nLength=0; };$/;"	f	struct:NodePos	access:public	signature:( int n )
 NodePos	cc/CMarkup/Markup/Markup.cpp	/^	NodePos() {};$/;"	f	struct:NodePos	access:public	signature:()
 NodePos	cc/CMarkup/Markup/Markup.cpp	/^struct NodePos$/;"	s	file:
@@ -1951,6 +1958,7 @@ PushTagAndCount	cc/CMarkup/Markup/Test/Markup.cpp	/^void ElemStack::PushTagAndCo
 RandInt	cc/CMarkup/Markup/Test/MarkupTest.cpp	/^int CMarkupTest::RandInt( int nNumber )$/;"	f	class:CMarkupTest	signature:( int nNumber )
 RandInt	cc/CMarkup/Markup/Test/MarkupTest.h	/^	int RandInt( int nNumber );$/;"	p	struct:CMarkupTest	access:protected	signature:( int nNumber )
 ReadFile	cc/CMarkup/main.cpp	/^bool ReadFile(string& strDoc, const char* szFileName)$/;"	f	signature:(string& strDoc, const char* szFileName)
+ReadFile	cc/CMarkup/main.cpp	/^bool ReadFile(string& strDoc, const char* szFileName);$/;"	p	file:	signature:(string& strDoc, const char* szFileName)
 ReadTextFile	cc/CMarkup/Markup/Markup.cpp	/^bool CMarkup::ReadTextFile( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult, int* pnDocFlags, MCD_STR* pstrEncoding )$/;"	f	class:CMarkup	signature:( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult, int* pnDocFlags, MCD_STR* pstrEncoding )
 ReadTextFile	cc/CMarkup/Markup/Markup.h	/^	static bool ReadTextFile( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult=NULL, int* pnDocFlags=NULL, MCD_STR* pstrEncoding=NULL );$/;"	p	class:CMarkup	access:public	signature:( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult=NULL, int* pnDocFlags=NULL, MCD_STR* pstrEncoding=NULL )
 ReadTextFile	cc/CMarkup/Markup/Test/Markup.cpp	/^bool CMarkup::ReadTextFile( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult, int* pnDocFlags, MCD_STR* pstrEncoding )$/;"	f	class:CMarkup	signature:( MCD_CSTR_FILENAME szFileName, MCD_STR& strDoc, MCD_STR* pstrResult, int* pnDocFlags, MCD_STR* pstrEncoding )
@@ -2271,6 +2279,7 @@ TokenPos::m_pReaderFilePos	cc/CMarkup/Markup/Markup.cpp	/^	FilePos* m_pReaderFil
 TokenPos::m_pReaderFilePos	cc/CMarkup/Markup/Test/Markup.cpp	/^	FilePos* m_pReaderFilePos;$/;"	m	struct:TokenPos	file:	access:public
 Transform	cc/CMarkup/Markup/Test/MarkupMSXML.cpp	/^CString CMarkupMSXML::Transform( CMarkupMSXML& xsl )$/;"	f	class:CMarkupMSXML	signature:( CMarkupMSXML& xsl )
 Transform	cc/CMarkup/Markup/Test/MarkupMSXML.h	/^	CString Transform( CMarkupMSXML& xsl );$/;"	p	class:CMarkupMSXML	access:public	signature:( CMarkupMSXML& xsl )
+Tree	cc/CMarkup/main.cpp	/^typedef map<int, vector<Node*> > Tree;$/;"	t	file:
 TruncToLastEOL	cc/CMarkup/Markup/Test/MarkupTest.cpp	/^MCD_STR TruncToLastEOL( MCD_STR strVal )$/;"	f	signature:( MCD_STR strVal )
 UTF16To8	cc/CMarkup/Markup/Markup.cpp	/^int CMarkup::UTF16To8( char* pszUTF8, const unsigned short* pwszUTF16, int nUTF8Count )$/;"	f	class:CMarkup	signature:( char* pszUTF8, const unsigned short* pwszUTF16, int nUTF8Count )
 UTF16To8	cc/CMarkup/Markup/Markup.h	/^	static int UTF16To8( char *pszUTF8, const unsigned short* pwszUTF16, int nUTF8Count );$/;"	p	class:CMarkup	access:public	signature:( char *pszUTF8, const unsigned short* pwszUTF16, int nUTF8Count )
@@ -2314,6 +2323,10 @@ anTable	cc/CMarkup/Markup/Markup.cpp	/^	int anTable[LS_TABLESIZE];$/;"	m	struct:
 anTable	cc/CMarkup/Markup/Test/Markup.cpp	/^	int anTable[LS_TABLESIZE];$/;"	m	struct:ElemStack	file:	access:protected
 bReader	cc/CMarkup/Markup/Markup.cpp	/^	bool bReader;$/;"	m	struct:PathPos	file:	access:private
 bReader	cc/CMarkup/Markup/Test/Markup.cpp	/^	bool bReader;$/;"	m	struct:PathPos	file:	access:private
+bVisit	cc/CMarkup/main.cpp	/^	bool bVisit;	$/;"	m	struct:tagNode	file:	access:public
+childs	cc/CMarkup/main.cpp	/^	vector<tagNode*> childs; $/;"	m	struct:tagNode	file:	access:public
+data	cc/CMarkup/main.cpp	/^	T data;$/;"	m	struct:tagNode	file:	access:public
+g_tree	cc/CMarkup/main.cpp	/^Tree g_tree;$/;"	v
 i	cc/CMarkup/Markup/Markup.cpp	/^	int i;$/;"	m	struct:PathPos	file:	access:private
 i	cc/CMarkup/Markup/Test/Markup.cpp	/^	int i;$/;"	m	struct:PathPos	file:	access:private
 iElemChild	cc/CMarkup/Markup/Markup.cpp	/^	int iElemChild; \/\/ first child$/;"	m	struct:ElemPos	file:	access:public
@@ -2539,6 +2552,7 @@ pL	cc/CMarkup/Markup/Markup.cpp	/^	TagPos* pL;$/;"	m	struct:ElemStack	file:	acce
 pL	cc/CMarkup/Markup/Test/Markup.cpp	/^	TagPos* pL;$/;"	m	struct:ElemStack	file:	access:protected
 pTable	cc/CMarkup/Markup/Markup.cpp	/^	SavedPos** pTable;$/;"	m	struct:SavedPosMap	file:	access:public
 pTable	cc/CMarkup/Markup/Test/Markup.cpp	/^	SavedPos** pTable;$/;"	m	struct:SavedPosMap	file:	access:public
+parent	cc/CMarkup/main.cpp	/^	tagNode* parent;$/;"	m	struct:tagNode	file:	access:public
 pcsz	cc/CMarkup/Markup/Markup.h	/^	MCD_PCSZ pcsz;$/;"	m	struct:MCD_CSTR	access:public
 pcsz	cc/CMarkup/Markup/Markup.h	/^	MCD_PCSZ_FILENAME pcsz;$/;"	m	struct:MCD_CSTR_FILENAME	access:public
 pcsz	cc/CMarkup/Markup/Test/Markup.h	/^	MCD_PCSZ pcsz;$/;"	m	struct:MCD_CSTR	access:public
@@ -2553,6 +2567,11 @@ strName	cc/CMarkup/Markup/Markup.cpp	/^	MCD_STR strName;$/;"	m	struct:SavedPos	f
 strName	cc/CMarkup/Markup/Test/Markup.cpp	/^	MCD_STR strName;$/;"	m	struct:SavedPos	file:	access:public
 strTagName	cc/CMarkup/Markup/Markup.cpp	/^	MCD_STR strTagName;$/;"	m	struct:TagPos	file:	access:public
 strTagName	cc/CMarkup/Markup/Test/Markup.cpp	/^	MCD_STR strTagName;$/;"	m	struct:TagPos	file:	access:public
+tagNode	cc/CMarkup/main.cpp	/^struct tagNode$/;"	s	file:
+tagNode::bVisit	cc/CMarkup/main.cpp	/^	bool bVisit;	$/;"	m	struct:tagNode	file:	access:public
+tagNode::childs	cc/CMarkup/main.cpp	/^	vector<tagNode*> childs; $/;"	m	struct:tagNode	file:	access:public
+tagNode::data	cc/CMarkup/main.cpp	/^	T data;$/;"	m	struct:tagNode	file:	access:public
+tagNode::parent	cc/CMarkup/main.cpp	/^	tagNode* parent;$/;"	m	struct:tagNode	file:	access:public
 theApp	cc/CMarkup/Markup/Test/MarkupApp.cpp	/^CMarkupApp theApp;$/;"	v
 value	cc/fibonaci.cpp	/^    enum { value = 0};$/;"	e	enum:Fib::__anon10	file:
 value	cc/fibonaci.cpp	/^    enum { value = 1};$/;"	e	enum:Fib::__anon9	file:
