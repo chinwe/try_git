@@ -2,7 +2,9 @@
 <!--Ability Comment-->	
 	<MinMaxAttribute min="1" max="100" />
 	<MinMaxElement>
-			<Min>1</Min>
+			<Min>
+				<Node>11</Node>
+			</Min>
 			<Max>100</Max>
 			<Default>1</Default>
 	</MinMaxElement>

@@ -1,76 +1,54 @@
 #include "Markup/Markup.h"
 #include <iostream>
 #include <fstream>
+#include <stack>
 
 using namespace std;
 
-//从文件中读取出xml字符串
-bool ReadFile(string& strDoc, const char* szFileName);
-//递归输出节点名称
-void PrintNode(const string& strDoc, int iDeep);
+//递归解析xml
+void Parse(const string& strDoc, int iDeep);
 
 int main(int argc, char *argv[])
 {
-
     string strDoc = "";
-
-    if(!ReadFile(strDoc, "test.xml"))
+    CMarkup parser;
+    if(parser.Load("test.xml"))
     {
-        cerr << "open file failed!" << endl;
-        return -1;
+        parser.FindElem();
+        Parse(parser.GetDoc(), 0);
     }
-
-    PrintNode(strDoc, 0);
-
 	return 0;
 }
 
-bool ReadFile(string& strDoc, const char* szFileName)
+//递归解析xml
+void Parse(const string& strDoc, int iDeep)
 {
-    ifstream fs(szFileName);
-    string strLine("");
-    strDoc="";
-
-    if (fs.is_open())
+    CMarkup parser;
+    parser.SetDoc(strDoc);
+    
+    while(parser.FindChildElem())
     {
-        while(getline(fs, strLine))
-        {
-            strDoc += strLine;
-        }//while getline successfull, append it to strDoc
-
-        return true;
-    }/*if open file succesfull*/
-
-    return false;
-}
-
-void PrintNode(const string& strDoc, int iDeep)
-{
-    CMarkup parse;
-    parse.SetDoc(strDoc);
-
+        Parse(parser.GetChildSubDoc(), iDeep + 1);
+    }/*递归解析字节点*/
+    
+    //复位当前位置为文档起始位置
+    parser.ResetPos();
     for (int i = 0; i < iDeep; ++i)
     {
         cout << "    ";
     }
-    parse.FindElem();
-    cout << parse.GetTagName() << endl;
     
-    parse.IntoElem();
-    if (parse.MNT_COMMENT == parse.FindNode(parse.MNT_EXCLUDE_WHITESPACE))
+    //定位到当前节点
+    parser.FindElem();
+    //获取节点名称
+    cout << parser.GetTagName();
+    //获取下一行的注释，如果存在注释，输出注释
+    parser.IntoElem();
+    if (parser.MNT_COMMENT == parser.FindNode(parser.MNT_EXCLUDE_WHITESPACE))
     {
-        cout << " : " << parse.GetData();
+        cout << " : " << parser.GetChildData();
     }
-     cout << endl;
-	//cout << "[Debug] PrintNode " << parse.GetTagName() << endl;
-	parse.OutOfElem();
-	parse.ResetMainPos();
-
-    while(parse.FindChildElem())
-    {
-        parse.IntoElem();
-        PrintNode(parse.GetSubDoc(), iDeep + 1);
-        parse.OutOfElem();
-    }
+    cout << endl;
+	parser.OutOfElem();
 }
 
