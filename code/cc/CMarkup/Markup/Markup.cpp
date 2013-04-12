@@ -388,6 +388,7 @@ bool TextEncoding::CanConvert( MCD_CSTR pszToEncoding, MCD_CSTR pszFromEncoding 
 	if ( nToCP == -1 || nFromCP == -1 )
 		return false;
 #if defined(MARKUP_WINCONV)
+
 	if ( nToCP == MCD_ACP || nFromCP == MCD_ACP ) // either ACP ANSI?
 	{
 		int nACP = GetACP();
@@ -654,6 +655,7 @@ int TextEncoding::PerformConversion( void* pTo, MCD_CSTR pszToEncoding/*=NULL*/ 
 				nUChar = CMarkup::DecodeCharUTF16( p16, p16End );
 				if ( nUChar == -1 )
 					nUChar = '?';
+
 				CMarkup::EncodeCharUTF8( nUChar, p8, nToLen );
 			}
 		}

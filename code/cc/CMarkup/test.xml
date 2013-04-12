@@ -1,4 +1,5 @@
 <Ability>
+<!--Ability Comment-->	
 	<MinMaxAttribute min="1" max="100" />
 	<MinMaxElement>
 			<Min>1</Min>
