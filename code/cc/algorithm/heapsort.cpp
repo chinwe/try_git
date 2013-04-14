@@ -26,7 +26,7 @@ void print(int* arr, int n)
 	cout << "[ ";	
 	for(int i = 1; i < n; ++i)
 	{
-			cout << arr[i] << " ";
+		cout << arr[i] << " ";
 	}
 	cout << "]" << endl;
 }
@@ -51,8 +51,8 @@ void max_heapify(int* arr, int n, int i)
 	
 	if (i != largest)
 	{
-	    /*把大的数值交换到当前节点*/
-		swap(arr[i], arr[largest]);
+		/*把大的数值交换到当前节点*/
+	    swap(arr[i], arr[largest]);
 		/*继续调整交换节点*/
 		max_heapify(arr, n, largest);
 	}/*最大值不是当前节点，而是字节点*/
@@ -65,7 +65,7 @@ void build_max_heap(int* arr, int n)
 {
 	int heap_size = n - 1;
 
-    /*［heap_size / 2,....,1]表示的是包含字节点的节点，从下向上依次调整*/
+        /*［heap_size / 2,....,1]表示的是包含字节点的节点，从下向上依次调整*/
 	for (int i = heap_size / 2; i >= 1; --i)
 	{
 	    max_heapify(arr, n, i);
@@ -78,7 +78,7 @@ void heap_sort(int* arr, int n)
     /*创建最大堆*/
 	build_max_heap(arr, n);
 	
-	/*由于根节点的值总是最小的，所以只需要把根值存储在数组尾部，然后减少堆大小，并保持根值*/
+	/*由于根节点的值总是最小的，所以只需要把根值存储在数组尾部，然后减少堆大小，并依次保存根值到尾部*/
 	for (int i = n - 1 ; i >= 2; --i)
 	{
 		swap(arr[1], arr[i]);
