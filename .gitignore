@@ -1,3 +1,5 @@
-#git忽略文件
+﻿#git忽略文件
 *.out
 *.o
+*.obj
+*.exe
