@@ -1,0 +1,33 @@
+from:http://www.firstobject.com/dn_edom.htm
+
+EDOM - Encapsulated Document Object Model
+EDOM - 压缩文档对象模型
+
+Please see the CMarkup Methods for the full CMarkup API. EDOM is described here as an overview of the original programming interface design behind CMarkup.
+
+The gist of EDOM is that the XML document and a current position are encapsulated in one object, and there is only one object. EDOM is the key to simple XML processing. With EDOM you can avoid the complexities of DOM, SAX, DTD, Schema and XSL for many uses of XML. Like DOM, the object is used for creating, parsing, and modifying an XML document. Unlike DOM, all methods are in one object, and that object is the XML document. The methods of this one simple document object allow you to cut through to the core functionality of XML files and strings.
+
+While XML DOM is specific to XML and there is another DOM for HTML, with EDOM the same object and methods can be used with HTML and other forms of markup. See Generic Markup In CMarkup.
+
+Terminology
+
+The most basic markup constructs such as tags, data, and attributes give you an adequate understanding for using XML in most messaging and storage applications. Elements have attributes and a data value or child elements. See the Introduction to XML.
+
+The following example XML document is used to demonstrate all of these basic parts. Here is an element which has the tag name "ELEM", and it contains three child elements with tag name "CHELEM". The ELEM contains the CHELEM elements because its start tag <ELEM> is before them and its end tag </ELEM> is after them. The CHELEM elements are siblings because they share the same parent element. The first child element has a data value of "data" between its start and end tag. The second child element has a special empty tag <CHELEM/> rather than a start and end tag; this is only possible when it has no data and no child elements, i.e. no content. The third child element is also empty and it has an attribute.
+
+<ELEM>
+  <CHELEM>data</CHELEM>
+  <CHELEM/>
+  <CHELEM attr="hi"/>
+</ELEM>
+In addition to elements and attributes, there are other contructs in XML that are not as essential, and for many purposes can be ignored. XML can contain comments, processing instructions, a document type definition, CDATA sections, and a mixture of text and elements known as mixed content. All these constructs are collectively supported by a logic which identifies the pieces of XML as "nodes". Again, although supported in EDOM, this level of complexity only needs to be understood if you need it. See the Node Methods in CMarkup.
+
+Current Position
+
+The EDOM object keeps track of where you are in the document much like a bookmark. EDOM maintains a current parent, main and child position as part of the current position. The current child position, if set, is always a child element of the current main position element, and similarly the current main position, if set, is always a child of the current parent position. So they are just aspects of the overall position, and together they are collectively called the current position. For brevity, the parts of the overall current position are called the parent position, the main position and the child position.
+
+Most EDOM methods act on the document according to the current position in the document. Some methods specifically involve one part of the current position: GetAttrib retrieves a main position attribute value and GetChildAttrib retrieves a child position attribute value. Other methods such as SavePos and RestorePos deal with the entire current position.
+
+The parent position is the anchor of the current position that allows you to maintain a position in the document when the main position is cleared.
+
+See also:
