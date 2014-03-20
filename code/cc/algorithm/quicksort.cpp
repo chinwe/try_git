@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//打印区间元素的模板方式[l,r)
 template<typename T>
 void print(const T& l, const T& r)
 {
